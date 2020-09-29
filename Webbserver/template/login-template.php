@@ -9,14 +9,18 @@
 	</head>
   <body id="login">
     <div id="wrapper">
-    <?php
+     	<header><!--Sidhuvud-->
+            <h1>Min onlinebutik - Logga in</h1>
+      </header>
+      
+      <<?php
 		require "masthead.php";
 		require "menu.php";
-	?>	
+		?>
 		
 			<main> <!--Huvudinnehåll-->
 				<section>
-					 <form action="" method="post">
+					 <form action="login2.php" method="post">
             <p><label for="user">Användarnamn:</label>
             <input type="text" id="user" name="username"></p>
             <p><label for="pwd">Lösenord:</label>
@@ -25,14 +29,14 @@
             <input type="submit" value="Logga in">
             </p>
           </form>
-          <p class="create"><a href="#">Skapa användare</a></p>
+          <p class="create"><a href="createUser-template.php">Skapa användare</a></p>
 				</section>
 			</main>
 
     </div>
-		<?php
-			require "footer.php";
-		?>
+    <?php	
+		require "footer.php";
+	?>
 
 	</body>
 </html>
