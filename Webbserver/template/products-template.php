@@ -32,7 +32,7 @@
 						echo $vara[0];
 						echo "</td><td>";
 						echo $vara[1];
-						echo "'</td><td><img src='";
+						echo "</td><td><img src='";
 						echo $vara[3];
 						echo "' alt='";
 						echo $vara[1];
