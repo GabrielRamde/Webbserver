@@ -10,29 +10,30 @@
     <?php
 		require "masthead.php";
 		require "menu.php";
-		require "varor.php";
+		require "varor.php";	
 	?>	
-			<main> <!--Huvudinnehåll-->
-				<section id="content">
-					<h2>Varor</h2>
+		<main> <!--Huvudinnehåll-->
+			<section id="content">
+				<h2>Varor</h2>
 			<?php
-				foreach($varor as $vara){
-					echo <<<FIGURE
-					<figure><img src="$vara[3]" alt="@vara[1]">
-						<figcaption>$vara[0] $vara[2]
-							<p>
-								<a href="#">Köp</a>
-							</p>
-						</figcaption>
-					</figure>
-FIGURE;
-				}
+				while($row=$result->fetch_assoc()) {
+					echo "<tr><td>";
+					echo $row["name"];
+					echo "</td><td>";
+					echo $row["description"];
+					echo "</td><td>";
+					echo "<img src='";
+					echo $row["picture"];
+					echo "'></td><td>";
+					echo $row["price"];
+					echo "</td></tr>";
+				}	
 			?>
 			</section>
-			</main>
-			<aside id="aside">
-				   <p>News</p>
-			</aside>
+		</main>
+		<aside id="aside">
+			<p>News</p>
+		</aside>
 		</div>
 		<!--Egen fil -->
 		<?php
