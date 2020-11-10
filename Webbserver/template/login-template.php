@@ -1,3 +1,15 @@
+<?php
+	$str="";
+	if(isset($_GET["status"])){
+		if($_GET["status"]==1){
+			$str="Felaktigt användare";
+		}
+		elseif($_GET["status"]==2){
+			$str="Felaktigt användare";
+		}
+	}
+?>
+
 <!DOCTYPE html>
 
 <html lang="sv">
