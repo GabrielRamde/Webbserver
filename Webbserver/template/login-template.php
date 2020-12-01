@@ -32,7 +32,7 @@
 		
 			<main> <!--Huvudinnehåll-->
 				<section>
-					 <form action="login2.php" method="post">
+					 <form action="../template/login2.php" method="post">
             <p><label for="user">Användarnamn:</label>
             <input type="text" id="user" name="username"></p>
             <p><label for="pwd">Lösenord:</label>
