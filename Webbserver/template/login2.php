@@ -13,24 +13,28 @@
 	$res=$dbh->prepare($sql);
 	$res->bind_param("s",$username);
 	$res->execute();
+	
 	$result=$res->get_result();
 	$row=$result->fetch_assoc();
 	
-	if(!$row){
+	if(!$row)
+	{
 		header("Location:../html/login.php?status=1");
 	}
-	else{
-		if($password === $row['password']){
+	else
+	{
+		if($password === $row['password'])
+		{
 			session_start();
 			$_SESSION['username']=$username;
 			$_SESSION['status']=$row['status'];
 			header("Location:../html/admin.php");
 		}
-		else{
+		else
+		{
 			header("Location:../html/login.php?status=2");
 		}
 	}
-	
 	echo $username;
 	echo "<br>";
 	echo $password;
