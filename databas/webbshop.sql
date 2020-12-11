@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Värd: 127.0.0.1
--- Tid vid skapande: 13 okt 2020 kl 14:38
--- Serverversion: 10.4.6-MariaDB
--- PHP-version: 7.3.8
+-- Tid vid skapande: 11 dec 2020 kl 11:32
+-- Serverversion: 10.4.17-MariaDB
+-- PHP-version: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 

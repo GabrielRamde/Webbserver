@@ -21,11 +21,7 @@
 	</head>
   <body id="login">
     <div id="wrapper">
-     	<header><!--Sidhuvud-->
-            <h1>Min onlinebutik - Logga in</h1>
-      </header>
-      
-      <<?php
+      <?php
 		require "masthead.php";
 		require "menu.php";
 		?>
