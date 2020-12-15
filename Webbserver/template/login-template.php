@@ -5,7 +5,7 @@
 			$str="Felaktigt användare";
 		}
 		elseif($_GET["status"]==2){
-			$str="Felaktigt användare";
+			$str="Felaktigt lösenord";
 		}
 	}
 ?>
@@ -25,26 +25,24 @@
 		require "masthead.php";
 		require "menu.php";
 		?>
-		
-			<main> <!--Huvudinnehåll-->
-				<section>
-					 <form action="../template/login2.php" method="post">
-            <p><label for="user">Användarnamn:</label>
-            <input type="text" id="user" name="username"></p>
-            <p><label for="pwd">Lösenord:</label>
-            <input type="password" id="pwd" name="password"></p>
-            <p>
-            <input type="submit" value="Logga in">
-            </p>
-          </form>
-          <p class="create"><a href="createUser.php">Skapa användare</a></p>
-				</section>
-			</main>
-
+		<main> <!--Huvudinnehåll-->
+			<section>
+				<p><?php echo $str; ?></p>
+				<form action="../template/login2.php" method="post">
+					<p><label for="user">Användarnamn:</label>
+					<input type="text" id="user" name="username"></p>
+					<p><label for="pwd">Lösenord:</label>
+					<input type="password" id="pwd" name="password"></p>
+					<p>
+					<input type="submit" value="Logga in">
+					</p>
+				</form>
+				<p class="create"><a href="createUser.php">Skapa användare</a></p>
+			</section>
+		</main>
     </div>
     <?php	
 		require "footer.php";
 	?>
-
 	</body>
 </html>

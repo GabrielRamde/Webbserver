@@ -1,22 +1,30 @@
 <?php
 $str="";
+	if (isset($_GET['username'])) {
+		$usr=$_GET['username'];
+		$str="Användarnamnet $usr upptaget";
+	}
+	elseif(isset($_GET['email'])) {
+		$ma=$_GET['email'];
+		$str="Mailadressen $ma är upptagen";
+	}
 	if(isset($_POST['fname'])&& isset($_POST['ename'] )&& isset( $_POST['mail'] )&& isset($_POST ['adress']) && isset( $_POST ['zip']) && isset ($_POST ['ort']) && isset ( $_POST ['nummer']) && isset ($_POST ['aname']) && isset ($_POST ['password'])) 
 	{
-		$fnamn = filter_input(INPUT_POST,'fname', FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
-		$enamn = filter_input(INPUT_POST,'ename', FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
-		$mail = filter_input(INPUT_POST,'mail', FILTER_SANITIZE_EMAIL, FILTER_FLAG_STRIP_LOW);
+		$firstname = filter_input(INPUT_POST,'fname', FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
+		$surname = filter_input(INPUT_POST,'ename', FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
+		$email = filter_input(INPUT_POST,'mail', FILTER_SANITIZE_EMAIL, FILTER_FLAG_STRIP_LOW);
 		$adress = filter_input(INPUT_POST,'adress', FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
 		$zip = filter_input(INPUT_POST,'zip', FILTER_SANITIZE_NUMBER_INT);
-		$ort =  filter_input(INPUT_POST,'ort', FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
-		$nummer = filter_input(INPUT_POST,'nummer', FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
-		$aname = filter_input(INPUT_POST,'aname', FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
+		$city =  filter_input(INPUT_POST,'ort', FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
+		$phone = filter_input(INPUT_POST,'nummer', FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
+		$username = filter_input(INPUT_POST,'aname', FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
 		$password = filter_input(INPUT_POST,'password', FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
 			
 		require "../includes/connect.php";
 			
 		$sql="SELECT * FROM users WHERE username = ? OR email = ?";
 		$res=$dbh->prepare($sql);
-		$res->bind_param("ss",$username, $mail);
+		$res->bind_param("ss",$username, $email);
 		$res->execute();
 		$result=$res->get_result();
 		$row=$result->fetch_assoc();
@@ -24,21 +32,11 @@ $str="";
 		if($row !== NULL)
 		{
 			if($row['username']=== $username) {
-				header("location:createUser.php?name=$username");
+				header("location:createUser.php?username=$username");
 			}
-			elseif($row['email'] === $mail) {
-				header("location;createUser.php?mail=$mail");
+			elseif($row['email'] === $email) {
+				header("location;createUser.php?email=$email");
 			}
-		}
-		$str="";
-		
-		if (isset($_GET['aname'])) {
-			$usr=$_GET['aname'];
-			$str="Användarnamnet $usr upptaget";
-		}
-		elseif(isset($_GET['mail'])) {
-				$ma=$_GET['mail'];
-				$str="Mailadressen $ma är upptagen";
 		}
 		else
 		{
@@ -80,7 +78,7 @@ $str="";
             <p>
             <input type="submit" value="Skapa användare">
             </p>
-          </form>
+        </form>
 FORM;
 	}
 ?>
