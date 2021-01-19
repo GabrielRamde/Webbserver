@@ -23,7 +23,7 @@
 	}
 	else
 	{
-		if($password === $row['password'])
+		if(password_verify($password,$row['password'])
 		{
 			session_start();
 			$_SESSION['username']=$username;

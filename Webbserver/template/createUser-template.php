@@ -19,6 +19,8 @@ $str="";
 		$phone = filter_input(INPUT_POST,'nummer', FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
 		$username = filter_input(INPUT_POST,'aname', FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
 		$password = filter_input(INPUT_POST,'password', FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
+		$password = password_hash($password, PASSWORD_DEFAULT);
+		
 			
 		require "../includes/connect.php";
 			
