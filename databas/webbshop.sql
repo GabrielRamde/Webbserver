@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Värd: 127.0.0.1
--- Tid vid skapande: 11 dec 2020 kl 11:32
+-- Tid vid skapande: 19 jan 2021 kl 13:49
 -- Serverversion: 10.4.17-MariaDB
 -- PHP-version: 8.0.0
 
@@ -45,7 +45,8 @@ CREATE TABLE `customers` (
 INSERT INTO `customers` (`customerID`, `username`, `firstname`, `surname`, `adress`, `zip`, `city`, `phone`) VALUES
 (1, 'kalle', 'kalle', 'anka', 'stora gatan 2', 12345, 'ankeborg', '123456'),
 (2, 'eddie', 'eddie', 'vestman', 'smålandsgatan 5', 35267, 'Växjö', '07356236473'),
-(3, 'gabriel', 'gabriel', 'ramde', 'löpanäsvägen 82', 36330, 'Rottne', '0735244259');
+(3, 'gabriel', 'gabriel', 'ramde', 'löpanäsvägen 82', 36330, 'Rottne', '0735244259'),
+(9, 'GabrielRamde', 'asd', 'dsa', 'asd', 36333, 'Rottne', '0735244259');
 
 -- --------------------------------------------------------
 
@@ -110,9 +111,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`username`, `email`, `password`, `status`) VALUES
-('eddie', 'ompahvestman@gmail.com', 'Tjorven!', 1),
-('gabriel', 'gabriel_0218@hotmail.com', 'gabbe', 1),
-('Kalle', 'kalle@example.com', 'que123', 1);
+('eddie', 'ompahvestman@gmail.com', '$2y$10$xjq6FDllW3RHxUja3d//k.2sYqGHdLWjA8Kx5HIVGWrS/AAIohyHK', 1),
+('gabriel', 'gabriel_0218@hotmail.com', '$2y$10$dB7njWFB3Q0C9NtAzGQhO.4wOn4eLJmdeLm.slfvnEgZG56LMjDHO', 1),
+('GabrielRamde', 'asd@gmail.com', '$2y$10$kZW7zCk5xeikgaaO.pucPutLHqXxTXFXGYpJsRTxy2nhRnqPAkEze', 1),
+('Kalle', 'kalle@example.com', '2y$10$J8a.7PAZM8V7pZ8T7SD1IOQyXXGDfiR6tc5UVaCaE8Pm/13G/opfi', 1);
 
 --
 -- Index för dumpade tabeller
@@ -156,7 +158,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT för tabell `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customerID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `customerID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT för tabell `orders`
