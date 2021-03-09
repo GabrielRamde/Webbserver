@@ -8,7 +8,7 @@ $str="";
 		$ma=$_GET['email'];
 		$str="Mailadressen $ma är upptagen";
 	}
-	if(isset($_POST['fname'])&& isset($_POST['ename'] )&& isset( $_POST['mail'] )&& isset($_POST ['adress']) && isset( $_POST ['zip']) && isset ($_POST ['ort']) && isset ( $_POST ['nummer']) && isset ($_POST ['aname']) && isset ($_POST ['password'])) 
+	if(!empty($_POST['fname'])&& !empty($_POST['ename'] )&& !empty( $_POST['mail'] )&& !empty($_POST ['adress']) && !empty( $_POST ['zip']) && !empty ($_POST ['ort']) && !empty ( $_POST ['nummer']) && !empty ($_POST ['aname']) && !empty ($_POST ['password'])) 
 	{
 		$firstname = filter_input(INPUT_POST,'fname', FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
 		$surname = filter_input(INPUT_POST,'ename', FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);

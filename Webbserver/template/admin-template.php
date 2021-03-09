@@ -50,8 +50,6 @@ $res=$dbh->prepare($sql);
 						echo $row["zip"];
 						echo "</td><td>";
 						echo $row["city"];
-						
-						
 					}	
 				?>
 				</tbody>
